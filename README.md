@@ -1,6 +1,6 @@
 # M5Stack Core2 用 ES920LR3 ファームウェア更新プログラム
 
-EASEL 社の 920MHz LoRa/FSK 無線モジュール（ES920LR3）の M5Stack 用開発基板のファームウェアを更新するためのプログラムです。
+[M5Stack 用 LoRa 無線モジュール](ssci.to/7685) に組み込まれている EASEL 社 920MHz LoRa/FSK 無線モジュール（ES920LR3）のファームウェア更新用プログラムです。
 
 ![Example Image](imgs/example.jpg)
 
@@ -23,6 +23,7 @@ EASEL 社の 920MHz LoRa/FSK 無線モジュール（ES920LR3）の M5Stack 用�
 
 - **ファームウェア更新モード**: ES920LR3 をブートモードに切り替え、シリアル通信でファームウェアを書き込み
 - **バージョン確認モード**: 現在のファームウェアバージョンを確認
+- **情報確認モード**: 現在の ES920LR3 に書き込まれている設定情報を表示
 - **シリアルブリッジ**: PC と ES920LR3 間のシリアル通信を中継
 
 ## ハードウェア接続
@@ -65,9 +66,13 @@ pio device monitor
 
 - **ボタン B**を押すとバージョン確認モードに切り替わります
 - 画面に「version check」と表示され、ファームウェアバージョンが表示されます
-- **ボタン A**を押すとファームウェア更新モードに戻ります
 
-### 3. シリアル通信の設定
+### 3. 情報確認モード
+
+- **ボタン C**を押すと情報確認モードに切り替わります
+- ES920LR3 に設定されている情報がすべての情報が表示されます
+
+### ４. シリアル通信の設定
 
 - **更新モード**: 115200 baud、8E1（Even parity、1 stop bit）
 - **通常モード**: 115200 baud、8N1（No parity、1 stop bit）
@@ -84,6 +89,10 @@ m5core2_firmware_updater/
 └── test/                    # テストファイル
 ```
 
+## 参考画面
+
+<img src="imgs/ES920LR3_update.png" width="300"> <img src="imgs/ES920LR3_version.png" width="300"> <img src="imgs/ES920LR3_info.png" width="300">
+
 ## 依存ライブラリ
 
 - `m5stack/M5Unified@0.1.11`: M5Stack 統合ライブラリ
@@ -92,10 +101,6 @@ m5core2_firmware_updater/
 
 - [M5Stack 用 LoRa 無線モジュール (ES920LR3) - 元ネタページ](https://ikkei.akiba.coocan.jp/ikkei_Electronics/M5LR3.html)
 - [EASEL 社 ES920LR3 資料](https://ikkei.akiba.coocan.jp/ikkei_Electronics/M5LR3.html)
-
-## ライセンス
-
-MaiaR Create
 
 ## 注意事項
 
